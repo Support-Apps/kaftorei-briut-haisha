@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌸 בריאות האישה</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Heebo', sans-serif;
+        }
+        
+        body {
+            background: #FFF5F7;
+            min-height: 100vh;
+            color: #333;
+        }
+        
+        .bsd {
+            position: fixed;
+            top: 10px;
+            right: 15px;
+            color: #D4A574;
+            font-size: 0.9em;
+            z-index: 200;
+            background: #FFF5F7;
+            padding: 5px 10px;
+            border-radius: 10px;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 50px 20px 15px;
+        }
+        
+        .header h1 {
+            font-size: 1.6em;
+            color: #D4A574;
+            margin-bottom: 5px;
+        }
+        
+        .tabs-container {
+            display: flex;
+            overflow-x: auto;
+            padding: 10px 15px;
+            gap: 8px;
+            background: #fff;
+            border-bottom: 2px solid #FFE4EC;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .tab-btn {
+            flex-shrink: 0;
+            padding: 10px 16px;
+            border: 2px solid #FFB6C1;
+            border-radius: 20px;
+            background: #fff;
+            color: #666;
+            font-size: 0.9em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        
+        .tab-btn:hover { background: #FFF0F3; }
+        
+        .tab-btn.active {
+            background: #FFB6C1;
+            color: #fff;
+            border-color: #FFB6C1;
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 20px;
+            padding-bottom: 100px;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .tab-content.active { display: block; }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .intro-section {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        
+        .intro-title {
+            font-size: 1.4em;
+            color: #D4A574;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .intro-text {
+            background: #fff;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 15px;
+            line-height: 1.8;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .intro-text h3 {
+            color: #D4A574;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .intro-text p { color: #666; margin-bottom: 10px; }
+        .intro-text ul { color: #666; padding-right: 20px; }
+        .intro-text li { margin-bottom: 8px; }
+        
+        .main-icon {
+            font-size: 60px;
+            text-align: center;
+            display: block;
+            margin: 20px 0;
+        }
+        
+        .start-btn {
+            display: block;
+            width: 100%;
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #D4A574;
+            border: none;
+            border-radius: 20px;
+            color: #fff;
+            font-size: 1.2em;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(212, 165, 116, 0.4);
+            transition: all 0.3s ease;
+        }
+        
+        .start-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(212, 165, 116, 0.5);
+        }
+        
+        .affirmation-box {
+            background: #fff;
+            border: 2px solid #D4A574;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 400px;
+            text-align: center;
+        }
+        
+        .affirmation-text {
+            font-size: 1.1em;
+            color: #D4A574;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+        
+        .section-title {
+            text-align: center;
+            color: #D4A574;
+            font-size: 1.2em;
+            margin: 25px 0 15px;
+            padding: 10px;
+            background: #fff;
+            border-radius: 15px;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .buttons-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            max-width: 400px;
+            margin: 0 auto 20px;
+        }
+        
+        .single-button {
+            display: block;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto 15px;
+        }
+        
+        .power-button {
+            background: #fff;
+            border: 2px solid #FFB6C1;
+            border-radius: 15px;
+            padding: 18px 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            width: 100%;
+        }
+        
+        .power-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(255, 182, 193, 0.3);
+            background: #FFF0F3;
+        }
+        
+        .power-button.mint { border-color: #B8E6D4; }
+        .power-button.mint:hover { background: #F0FFF8; }
+        .power-button.gold { border-color: #D4A574; }
+        .power-button.gold:hover { background: #FFFAF5; }
+        
+        .button-icon { font-size: 35px; margin-bottom: 8px; display: block; }
+        .button-title { font-size: 1em; font-weight: 700; color: #333; }
+        
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: #FFF5F7;
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        
+        .overlay.active { display: flex; }
+        .overlay-content { text-align: center; max-width: 350px; width: 100%; }
+        
+        .close-overlay {
+            position: fixed;
+            top: 20px; left: 20px;
+            background: #FFB6C1;
+            border: none;
+            color: #fff;
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
+        .animation-icon { font-size: 70px; margin-bottom: 25px; }
+        .animation-text { font-size: 1.2em; margin-bottom: 20px; min-height: 60px; color: #333; line-height: 1.5; }
+        
+        .progress-bar {
+            width: 100%; height: 12px;
+            background: #FFE4EC;
+            border-radius: 6px;
+            overflow: hidden;
+            margin-bottom: 25px;
+        }
+        
+        .progress-fill {
+            height: 100%; width: 0%;
+            border-radius: 6px;
+            transition: width 0.5s ease;
+            background: #B8E6D4;
+        }
+        
+        .install-btn {
+            background: #B8E6D4;
+            border: none;
+            color: #333;
+            padding: 15px 35px;
+            border-radius: 25px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .install-btn:hover { transform: scale(1.05); box-shadow: 0 5px 20px rgba(184, 230, 212, 0.5); }
+        .install-btn:disabled { background: #ddd; cursor: not-allowed; transform: none; }
+        
+        .completion-message {
+            display: none;
+            padding: 20px;
+            background: #fff;
+            border: 2px solid #B8E6D4;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+        
+        .completion-message.show { display: block; animation: fadeIn 0.5s ease; }
+        
+        .master-btn {
+            display: block;
+            width: 100%;
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #D4A574;
+            border: none;
+            border-radius: 20px;
+            color: #fff;
+            font-size: 1.2em;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(212, 165, 116, 0.4);
+            transition: all 0.3s ease;
+        }
+        
+        .master-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(212, 165, 116, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="bsd">בס"ד</div>
+    
+    <div class="header">
+        <h1>🌸 בריאות האישה</h1>
+    </div>
+    
+    <div class="tabs-container">
+        <button class="tab-btn active" onclick="showTab('intro')">🏠 מבוא</button>
+        <button class="tab-btn" onclick="showTab('fibroids')">🌺 מיומות</button>
+        <button class="tab-btn" onclick="showTab('cysts')">💧 ציסטות</button>
+        <button class="tab-btn" onclick="showTab('breast')">🎀 שד</button>
+        <button class="tab-btn" onclick="showTab('endo')">🩺 אנדומטריוזיס</button>
+        <button class="tab-btn" onclick="showTab('uterus')">🌷 רחם</button>
+        <button class="tab-btn" onclick="showTab('ovaries')">🥚 שחלות</button>
+        <button class="tab-btn" onclick="showTab('balance')">💫 איזון</button>
+        <button class="tab-btn" onclick="showTab('cycle')">🌙 מחזור</button>
+    </div>
+    
+    <div id="intro" class="tab-content active">
+        <div class="intro-section">
+            <div class="main-icon">🌸</div>
+            <div class="intro-title">ברוכה הבאה לאפליקציית בריאות האישה</div>
+            
+            <div class="intro-text">
+                <h3>🌟 מהי מטרת האפליקציה?</h3>
+                <p>אפליקציה לריפוי והסרת גידולים שפירים במערכת הרבייה הנשית. כל כפתור מפעיל תהליך של ריפוי, המסה והסרה.</p>
+            </div>
+            
+            <div class="intro-text">
+                <h3>⚙️ איך זה עובד?</h3>
+                <p>כל תהליך מורכב מ-10 שלבים של 4 שניות כל אחד (40 שניות סה"כ). התהליך מראה את מסע הריפוי מההתחלה ועד ההשלמה.</p>
+            </div>
+            
+            <div class="intro-text">
+                <h3>📑 הלשוניות באפליקציה:</h3>
+                <ul>
+                    <li><strong>מיומות</strong> - פיברואידים ברחם</li>
+                    <li><strong>ציסטות</strong> - תורמילים בשחלות</li>
+                    <li><strong>שד</strong> - גושים ושינויים בשד</li>
+                    <li><strong>אנדומטריוזיס</strong> - רקמת רחם מחוץ לרחם</li>
+                    <li><strong>רחם</strong> - בריאות הרחם</li>
+                    <li><strong>שחלות</strong> - בריאות השחלות</li>
+                    <li><strong>איזון</strong> - איזון הורמונלי וריפוי</li>
+                    <li><strong>מחזור</strong> - מחזור ופוריות</li>
+                </ul>
+            </div>
+            
+            <div class="affirmation-box">
+                <div class="affirmation-text">💜 הגוף שלי בריא ושלם, הרחם שלי נקי ומאוזן</div>
+            </div>
+            
+            <button class="start-btn" onclick="goToFirst()">✨ מעבר לריפוי</button>
+        </div>
+    </div>
+    
+    <div id="fibroids" class="tab-content">
+        <div class="section-title">🌺 מיומות ברחם (פיברואידים)</div>
+        <div class="single-button">
+            <div class="power-button gold" onclick="startProcess('fullHealing')">
+                <span class="button-icon">✨</span>
+                <div class="button-title">ריפוי מלא של מערכת הרבייה</div>
+            </div>
+        </div>
+        <div class="buttons-grid">
+            <div class="power-button" onclick="startProcess('fibroidsAll')"><span class="button-icon">🎯</span><div class="button-title">הסרת כל המיומות</div></div>
+            <div class="power-button mint" onclick="startProcess('fibroidsShrink')"><span class="button-icon">📉</span><div class="button-title">כיווץ המיומות</div></div>
+            <div class="power-button gold" onclick="startProcess('fibroidsDissolve')"><span class="button-icon">💫</span><div class="button-title">המסת המיומות</div></div>
+            <div class="power-button" onclick="startProcess('fibroidsBlood')"><span class="button-icon">🩸</span><div class="button-title">ניתוק אספקת דם</div></div>
+            <div class="power-button mint" onclick="startProcess('fibroidsSubmucous')"><span class="button-icon">🔴</span><div class="button-title">מיומה תת-רירית</div></div>
+            <div class="power-button gold" onclick="startProcess('fibroidsIntramural')"><span class="button-icon">⭕</span><div class="button-title">מיומה תוך-שרירית</div></div>
+            <div class="power-button" onclick="startProcess('fibroidsSubserous')"><span class="button-icon">🟠</span><div class="button-title">מיומה תת-סרוזית</div></div>
+            <div class="power-button mint" onclick="startProcess('fibroidsPedunculated')"><span class="button-icon">🎈</span><div class="button-title">מיומה על גבעול</div></div>
+        </div>
+    </div>
+    
+    <div id="cysts" class="tab-content">
+        <div class="section-title">💧 ציסטות (תורמילים)</div>
+        <div class="buttons-grid">
+            <div class="power-button gold" onclick="startProcess('cystsOvarian')"><span class="button-icon">🥚</span><div class="button-title">ציסטות בשחלות</div></div>
+            <div class="power-button" onclick="startProcess('cystsFunctional')"><span class="button-icon">⚪</span><div class="button-title">ציסטה תפקודית</div></div>
+            <div class="power-button mint" onclick="startProcess('cystsDermoid')"><span class="button-icon">🔵</span><div class="button-title">ציסטה דרמואידית</div></div>
+            <div class="power-button gold" onclick="startProcess('cystsEndometrioma')"><span class="button-icon">🟤</span><div class="button-title">אנדומטריומה</div></div>
+            <div class="power-button" onclick="startProcess('cystsPCOS')"><span class="button-icon">🔘</span><div class="button-title">שחלות פוליציסטיות</div></div>
+            <div class="power-button mint" onclick="startProcess('cystsDissolve')"><span class="button-icon">💫</span><div class="button-title">המסת כל הציסטות</div></div>
+        </div>
+    </div>
+    
+    <div id="breast" class="tab-content">
+        <div class="section-title">🎀 גושים בשד</div>
+        <div class="buttons-grid">
+            <div class="power-button gold" onclick="startProcess('breastAll')"><span class="button-icon">🎀</span><div class="button-title">הסרת כל הגושים</div></div>
+            <div class="power-button" onclick="startProcess('breastFibroadenoma')"><span class="button-icon">⚪</span><div class="button-title">פיברואדנומה</div></div>
+            <div class="power-button mint" onclick="startProcess('breastCyst')"><span class="button-icon">💧</span><div class="button-title">ציסטה בשד</div></div>
+            <div class="power-button gold" onclick="startProcess('breastFibrocystic')"><span class="button-icon">🔷</span><div class="button-title">שינויים פיברוציסטיים</div></div>
+            <div class="power-button" onclick="startProcess('breastCalcifications')"><span class="button-icon">✨</span><div class="button-title">הסתיידויות</div></div>
+            <div class="power-button mint" onclick="startProcess('breastDensity')"><span class="button-icon">🌫️</span><div class="button-title">צפיפות רקמת שד</div></div>
+        </div>
+    </div>
+    
+    <div id="endo" class="tab-content">
+        <div class="section-title">🩺 אנדומטריוזיס</div>
+        <div class="buttons-grid">
+            <div class="power-button gold" onclick="startProcess('endoAll')"><span class="button-icon">🎯</span><div class="button-title">הסרת כל האנדומטריוזיס</div></div>
+            <div class="power-button" onclick="startProcess('endoOvarian')"><span class="button-icon">🥚</span><div class="button-title">אנדומטריוזיס בשחלות</div></div>
+            <div class="power-button mint" onclick="startProcess('endoPeritoneal')"><span class="button-icon">🔴</span><div class="button-title">אנדומטריוזיס בצפק</div></div>
+            <div class="power-button gold" onclick="startProcess('endoDeep')"><span class="button-icon">⬇️</span><div class="button-title">אנדומטריוזיס עמוק</div></div>
+            <div class="power-button" onclick="startProcess('endoAdhesions')"><span class="button-icon">🔗</span><div class="button-title">הדבקויות</div></div>
+            <div class="power-button mint" onclick="startProcess('endoPain')"><span class="button-icon">💜</span><div class="button-title">הקלה בכאבים</div></div>
+        </div>
+    </div>
+    
+    <div id="uterus" class="tab-content">
+        <div class="section-title">🌷 בריאות הרחם</div>
+        <div class="buttons-grid">
+            <div class="power-button gold" onclick="startProcess('uterusHealth')"><span class="button-icon">🌷</span><div class="button-title">בריאות הרחם</div></div>
+            <div class="power-button" onclick="startProcess('uterusLining')"><span class="button-icon">🎀</span><div class="button-title">רירית רחם בריאה</div></div>
+            <div class="power-button mint" onclick="startProcess('uterusPolyps')"><span class="button-icon">🔸</span><div class="button-title">הסרת פוליפים</div></div>
+            <div class="power-button gold" onclick="startProcess('adenomyosis')"><span class="button-icon">🟣</span><div class="button-title">אדנומיוזיס</div></div>
+            <div class="power-button" onclick="startProcess('cervixHealth')"><span class="button-icon">🌸</span><div class="button-title">בריאות צוואר הרחם</div></div>
+            <div class="power-button mint" onclick="startProcess('uterusBlood')"><span class="button-icon">🩸</span><div class="button-title">זרימת דם תקינה</div></div>
+        </div>
+    </div>
+    
+    <div id="ovaries" class="tab-content">
+        <div class="section-title">🥚 בריאות השחלות</div>
+        <div class="buttons-grid">
+            <div class="power-button gold" onclick="startProcess('ovariesHealth')"><span class="button-icon">🥚</span><div class="button-title">בריאות השחלות</div></div>
+            <div class="power-button" onclick="startProcess('ovariesHormones')"><span class="button-icon">⚖️</span><div class="button-title">איזון הורמונלי</div></div>
+            <div class="power-button mint" onclick="startProcess('ovariesOvulation')"><span class="button-icon">🌟</span><div class="button-title">ביוץ תקין</div></div>
+            <div class="power-button gold" onclick="startProcess('ovariesReserve')"><span class="button-icon">💎</span><div class="button-title">רזרבה שחלתית</div></div>
+        </div>
+    </div>
+    
+    <div id="balance" class="tab-content">
+        <div class="section-title">💫 איזון וריפוי</div>
+        <div class="buttons-grid">
+            <div class="power-button" onclick="startProcess('hormoneBalance')"><span class="button-icon">⚖️</span><div class="button-title">איזון הורמונלי מלא</div></div>
+            <div class="power-button mint" onclick="startProcess('estrogenBalance')"><span class="button-icon">🌸</span><div class="button-title">איזון אסטרוגן</div></div>
+            <div class="power-button gold" onclick="startProcess('progesteroneBalance')"><span class="button-icon">🌺</span><div class="button-title">איזון פרוגסטרון</div></div>
+            <div class="power-button" onclick="startProcess('inflammationReduce')"><span class="button-icon">🔥</span><div class="button-title">הפחתת דלקות</div></div>
+            <div class="power-button mint" onclick="startProcess('immuneBalance')"><span class="button-icon">🛡️</span><div class="button-title">איזון מערכת החיסון</div></div>
+            <div class="power-button gold" onclick="startProcess('detox')"><span class="button-icon">🧹</span><div class="button-title">ניקוי רעלים</div></div>
+        </div>
+    </div>
+    
+    <div id="cycle" class="tab-content">
+        <div class="section-title">🌙 מחזור ופוריות</div>
+        <div class="buttons-grid">
+            <div class="power-button" onclick="startProcess('cycleRegulate')"><span class="button-icon">🌙</span><div class="button-title">ויסות המחזור</div></div>
+            <div class="power-button mint" onclick="startProcess('painRelief')"><span class="button-icon">💆</span><div class="button-title">הקלה בכאבי מחזור</div></div>
+            <div class="power-button gold" onclick="startProcess('bleedingBalance')"><span class="button-icon">🩸</span><div class="button-title">איזון דימום</div></div>
+            <div class="power-button" onclick="startProcess('fertility')"><span class="button-icon">👶</span><div class="button-title">פוריות ופריון</div></div>
+        </div>
+        <button class="master-btn" onclick="startProcess('totalWomensHealth')">🌟 ריפוי מלא - בריאות האישה</button>
+    </div>
+
+    <script>
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            event.target.classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        function goToFirst() {
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById('fibroids').classList.add('active');
+            document.querySelectorAll('.tab-btn')[1].classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        const data = {
+            fullHealing: { name: 'ריפוי מלא', stages: ['סורקת את כל מערכת הרבייה...','מזהה מיומות, ציסטות וגושים...','מתחילה תהליך המסה...','מכווצת את הגידולים...','ממיסה וספיגת הרקמה...','מנקה את הרחם...','מאזנת הורמונים...','מחזקת את הרקמות הבריאות...','מחדשת את התאים...','ריפוי מלא הושלם!'], completion: 'מערכת הרבייה נקייה ובריאה. הרחם, השחלות והשדיים בריאים ומאוזנים.' },
+            fibroidsAll: { name: 'הסרת כל המיומות', stages: ['סורקת את הרחם...','מזהה את כל המיומות...','מנתקת אספקת דם...','מתחילה תהליך כיווץ...','המיומות מתכווצות...','ממיסה את הרקמה...','השאריות יוצאות כפסולת...','הרחם מתנקה...','רקמה בריאה במקום...','כל המיומות הוסרו!'], completion: 'כל המיומות הוסרו מהרחם. הרחם נקי, בריא ומתפקד היטב.' },
+            fibroidsShrink: { name: 'כיווץ המיומות', stages: ['מתמקדת במיומות...','שולחת אות כיווץ...','המיומה מתחילה להתכווץ...','הגודל קטן...','ממשיכה לכווץ...','המיומה קטנה יותר...','הלחץ פוחת...','התסמינים משתפרים...','כיווץ מקסימלי...','המיומות התכווצו!'], completion: 'המיומות התכווצו לגודל מינימלי.' },
+            fibroidsDissolve: { name: 'המסת המיומות', stages: ['מתמקדת במיומות...','מפעילה תהליך המסה...','הרקמה מתחילה להתפרק...','המיומה נמסה...','התאים נספגים...','הגוף מפנה את השאריות...','המקום מתנקה...','רקמה בריאה צומחת...','המסה מלאה...','המיומות נמסו!'], completion: 'המיומות נמסו והרקמה נספגה. הרחם נקי ובריא.' },
+            fibroidsBlood: { name: 'ניתוק אספקת דם', stages: ['מזהה כלי דם המזינים את המיומה...','מתחילה ניתוק...','כלי הדם מצטמקים...','אספקת הדם פוחתת...','המיומה לא מקבלת הזנה...','מתחילה להתנוון...','מתכווצת...','נמסה...','נספגת...','אספקת דם נותקה!'], completion: 'אספקת הדם למיומה נותקה. המיומה מתכווצת ונספגת.' },
+            fibroidsSubmucous: { name: 'מיומה תת-רירית', stages: ['מזהה מיומה תת-רירית...','המיומה בתוך חלל הרחם...','מתחילה תהליך הסרה...','מנתקת מהרירית...','מכווצת את המיומה...','ממיסה את הרקמה...','הרירית מתרפאת...','חלל הרחם מתנקה...','רירית בריאה צומחת...','מיומה תת-רירית הוסרה!'], completion: 'המיומה התת-רירית הוסרה. חלל הרחם נקי.' },
+            fibroidsIntramural: { name: 'מיומה תוך-שרירית', stages: ['מזהה מיומה תוך-שרירית...','המיומה בתוך דופן הרחם...','מתחילה תהליך הסרה...','מכווצת את המיומה...','ממיסה מבפנים החוצה...','דופן הרחם מתרפאת...','הרקמה נספגת...','השריר מתחזק...','דופן בריאה...','מיומה תוך-שרירית הוסרה!'], completion: 'המיומה התוך-שרירית הוסרה. דופן הרחם בריאה.' },
+            fibroidsSubserous: { name: 'מיומה תת-סרוזית', stages: ['מזהה מיומה תת-סרוזית...','המיומה על פני הרחם...','מתחילה תהליך הסרה...','מנתקת את הבסיס...','מכווצת את המיומה...','ממיסה את הרקמה...','פני הרחם מתרפאים...','הרקמה נספגת...','פני הרחם חלקים...','מיומה תת-סרוזית הוסרה!'], completion: 'המיומה התת-סרוזית הוסרה.' },
+            fibroidsPedunculated: { name: 'מיומה על גבעול', stages: ['מזהה מיומה על גבעול...','מתמקדת בגבעול...','מנתקת את אספקת הדם...','הגבעול מתנתק...','המיומה נופלת...','מתחילה להיספג...','הרקמה נמסה...','המקום מתרפא...','אין עוד גבעול...','מיומה על גבעול הוסרה!'], completion: 'המיומה על הגבעול הוסרה לחלוטין.' },
+            cystsOvarian: { name: 'ציסטות בשחלות', stages: ['סורקת את השחלות...','מזהה ציסטות...','מתמקדת בציסטה...','פותחת את הדופן...','מנקזת את הנוזל...','ממיסה את הדופן...','השחלה מתרפאת...','רקמה בריאה צומחת...','השחלה נקייה...','ציסטות בשחלות הוסרו!'], completion: 'הציסטות בשחלות הוסרו. השחלות נקיות ובריאות.' },
+            cystsFunctional: { name: 'ציסטה תפקודית', stages: ['מזהה ציסטה תפקודית...','ציסטת זקיק או גוף צהוב...','שולחת אות ספיגה...','הציסטה מתחילה להיספג...','הנוזל נספג...','הדופן נמסה...','השחלה חוזרת לתפקוד...','המחזור מתאזן...','הכל תקין...','ציסטה תפקודית נספגה!'], completion: 'הציסטה התפקודית נספגה.' },
+            cystsDermoid: { name: 'ציסטה דרמואידית', stages: ['מזהה ציסטה דרמואידית...','מתמקדת בציסטה...','מתחילה תהליך המסה...','ממיסה את התוכן...','ממיסה את הדופן...','הרקמה נספגת...','השחלה מתרפאת...','רקמה בריאה במקום...','השחלה נקייה...','ציסטה דרמואידית הוסרה!'], completion: 'הציסטה הדרמואידית הוסרה.' },
+            cystsEndometrioma: { name: 'אנדומטריומה', stages: ['מזהה אנדומטריומה...','ציסטת שוקולד בשחלה...','מתחילה תהליך ניקוז...','מנקזת את התוכן הכהה...','ממיסה את הדופן...','מנקה את הרקמה האנדומטריאלית...','השחלה מתרפאת...','רקמה בריאה צומחת...','אין עוד אנדומטריוזיס...','אנדומטריומה הוסרה!'], completion: 'האנדומטריומה הוסרה לחלוטין.' },
+            cystsPCOS: { name: 'שחלות פוליציסטיות', stages: ['סורקת שחלות פוליציסטיות...','מזהה ציסטות קטנות רבות...','מתחילה תהליך המסה...','ממיסה את הציסטות...','מאזנת הורמונים...','מפחיתה אנדרוגנים...','השחלות מתנקות...','הביוץ חוזר...','המחזור מתאזן...','PCOS טופל!'], completion: 'השחלות הפוליציסטיות טופלו. איזון הורמונלי וביוץ תקין.' },
+            cystsDissolve: { name: 'המסת כל הציסטות', stages: ['סורקת את כל הציסטות...','מזהה כל ציסטה...','מפעילה תהליך המסה...','הציסטות נמסות...','הנוזלים נספגים...','הדפנות נמסות...','השחלות מתנקות...','רקמה בריאה צומחת...','הכל נקי...','כל הציסטות נמסו!'], completion: 'כל הציסטות נמסו ונספגו.' },
+            breastAll: { name: 'הסרת גושים בשד', stages: ['סורקת את השדיים...','מזהה את כל הגושים...','מתחילה תהליך המסה...','הגושים מתכווצים...','הרקמה נמסה...','נספגת בגוף...','רקמת השד מתרפאת...','רקמה בריאה צומחת...','השדיים נקיים...','כל הגושים הוסרו!'], completion: 'כל הגושים בשדיים הוסרו.' },
+            breastFibroadenoma: { name: 'פיברואדנומה', stages: ['מזהה פיברואדנומה...','גוש שפיר ברקמת השד...','מתחילה תהליך המסה...','הפיברואדנומה מתכווצת...','הרקמה נמסה...','נספגת בגוף...','השד מתרפא...','רקמה בריאה במקום...','אין עוד גוש...','פיברואדנומה הוסרה!'], completion: 'הפיברואדנומה הוסרה לחלוטין.' },
+            breastCyst: { name: 'ציסטה בשד', stages: ['מזהה ציסטה בשד...','שקית נוזל ברקמת השד...','מתחילה תהליך ניקוז...','הנוזל נספג...','הדופן נמסה...','הרקמה מתרפאת...','אין עוד ציסטה...','השד בריא...','רקמה תקינה...','ציסטה בשד הוסרה!'], completion: 'הציסטה בשד הוסרה.' },
+            breastFibrocystic: { name: 'שינויים פיברוציסטיים', stages: ['מזהה שינויים פיברוציסטיים...','גושים ורקמה סיבית...','מתחילה תהליך איזון...','ממיסה רקמה סיבית עודפת...','מאזנת את ההורמונים...','הרקמה מתנרמלת...','הרגישות פוחתת...','השדיים מרגישים טוב יותר...','רקמה מאוזנת...','שינויים פיברוציסטיים טופלו!'], completion: 'השינויים הפיברוציסטיים טופלו.' },
+            breastCalcifications: { name: 'הסתיידויות', stages: ['מזהה הסתיידויות בשד...','משקעי סידן ברקמה...','מתחילה תהליך המסה...','ההסתיידויות נמסות...','הסידן נספג...','הרקמה מתנקה...','רקמה רכה ובריאה...','אין עוד הסתיידויות...','השד נקי...','הסתיידויות הוסרו!'], completion: 'ההסתיידויות הוסרו מרקמת השד.' },
+            breastDensity: { name: 'צפיפות רקמת שד', stages: ['מזהה רקמת שד צפופה...','מתחילה תהליך איזון...','מרככת את הרקמה...','מאזנת את הצפיפות...','יוצרת מרקם בריא...','הרקמה מתאזנת...','זרימה טובה יותר...','בדיקות קלות יותר...','רקמה מאוזנת...','צפיפות רקמה מאוזנת!'], completion: 'צפיפות רקמת השד מאוזנת.' },
+            endoAll: { name: 'הסרת אנדומטריוזיס', stages: ['סורקת אנדומטריוזיס בכל הגוף...','מזהה כל המוקדים...','מתחילה תהליך הסרה...','ממיסה את הרקמה האנדומטריאלית...','מנקה מהשחלות...','מנקה מהצפק...','מסירה הדבקויות...','הגוף מתרפא...','אין עוד אנדומטריוזיס...','אנדומטריוזיס הוסר!'], completion: 'כל האנדומטריוזיס הוסר מהגוף. ריפוי מלא וחופש מכאב.' },
+            endoOvarian: { name: 'אנדומטריוזיס בשחלות', stages: ['מזהה אנדומטריוזיס בשחלות...','מתמקדת במוקדים...','מתחילה תהליך הסרה...','ממיסה את הרקמה...','מנקה את השחלות...','מרפאה את הרקמה...','השחלות מתנקות...','תפקוד תקין חוזר...','אין עוד מוקדים...','שחלות נקיות מאנדומטריוזיס!'], completion: 'השחלות נקיות מאנדומטריוזיס.' },
+            endoPeritoneal: { name: 'אנדומטריוזיס בצפק', stages: ['מזהה אנדומטריוזיס בצפק...','מתמקדת במוקדים...','מתחילה תהליך הסרה...','ממיסה את הנקודות...','מנקה את הצפק...','מרפאה את הרקמה...','הצפק מתנקה...','אין עוד דלקת...','אין עוד כאב...','צפק נקי מאנדומטריוזיס!'], completion: 'הצפק נקי מאנדומטריוזיס.' },
+            endoDeep: { name: 'אנדומטריוזיס עמוק', stages: ['מזהה אנדומטריוזיס עמוק...','חודרת לשכבות עמוקות...','מתחילה תהליך הסרה...','ממיסה מהעומק...','שכבה אחר שכבה...','מנקה לעומק...','מרפאה את הרקמות...','אין עוד חדירה...','ריפוי עמוק...','אנדומטריוזיס עמוק הוסר!'], completion: 'האנדומטריוזיס העמוק הוסר לחלוטין.' },
+            endoAdhesions: { name: 'הדבקויות', stages: ['מזהה הדבקויות...','רקמות צלקת שמחברות איברים...','מתחילה תהליך שחרור...','ממיסה את ההדבקויות...','משחררת את האיברים...','כל איבר חופשי...','תנועה חופשית...','אין עוד כאב...','הכל זורם...','הדבקויות הוסרו!'], completion: 'ההדבקויות הוסרו. האיברים חופשיים.' },
+            endoPain: { name: 'הקלה בכאבים', stages: ['מזהה מקורות כאב...','שולחת אות הרגעה...','מפחיתה דלקת...','מרגיעה את העצבים...','משחררת מתח...','הכאב פוחת...','הגוף נרגע...','נוחות חוזרת...','חופש מכאב...','הקלה מלאה בכאבים!'], completion: 'הכאבים הוקלו לחלוטין.' },
+            uterusHealth: { name: 'בריאות הרחם', stages: ['סורקת את הרחם...','בודקת את הבריאות...','מחזקת את הדופן...','מאזנת את הרירית...','משפרת זרימת דם...','מחזקת את השריר...','מאזנת את הצורה...','הרחם בריא...','תפקוד מושלם...','רחם בריא ושלם!'], completion: 'הרחם בריא, חזק ומתפקד היטב.' },
+            uterusLining: { name: 'רירית רחם בריאה', stages: ['סורקת את רירית הרחם...','בודקת את העובי...','מאזנת את הרירית...','משפרת את האיכות...','מחזקת כלי דם...','רירית עשירה ובריאה...','מוכנה לקליטה...','עובי אופטימלי...','איכות מעולה...','רירית רחם בריאה!'], completion: 'רירית הרחם בריאה, עשירה ובעובי אופטימלי.' },
+            uterusPolyps: { name: 'הסרת פוליפים', stages: ['סורקת פוליפים ברחם...','מזהה את כל הפוליפים...','מתחילה תהליך הסרה...','מנתקת מהבסיס...','הפוליפ נופל...','נספג בגוף...','הרירית מתרפאת...','משטח חלק...','אין עוד פוליפים...','פוליפים הוסרו!'], completion: 'כל הפוליפים הוסרו מהרחם.' },
+            adenomyosis: { name: 'אדנומיוזיס', stages: ['מזהה אדנומיוזיס...','רקמת רירית בתוך הדופן...','מתחילה תהליך הסרה...','ממיסה רקמה לא שייכת...','מנקה את הדופן...','דופן הרחם מתרפאת...','שריר בריא במקום...','הכאבים נעלמים...','דימום מאוזן...','אדנומיוזיס טופל!'], completion: 'האדנומיוזיס טופל. דופן הרחם בריאה.' },
+            cervixHealth: { name: 'בריאות צוואר הרחם', stages: ['סורקת את צוואר הרחם...','בודקת את הבריאות...','מנקה תאים לא תקינים...','מחזקת את הרקמה...','מאזנת את הפרשות...','צוואר בריא...','תאים תקינים...','הגנה טבעית...','בריאות מלאה...','צוואר רחם בריא!'], completion: 'צוואר הרחם בריא ותקין.' },
+            uterusBlood: { name: 'זרימת דם תקינה', stages: ['בודקת זרימת דם לרחם...','פותחת כלי דם...','משפרת את הזרימה...','דם עשיר מגיע...','חמצן ומזון...','הרחם מוזן היטב...','זרימה מושלמת...','כלי דם בריאים...','הזנה מלאה...','זרימת דם תקינה!'], completion: 'זרימת הדם לרחם תקינה ומושלמת.' },
+            ovariesHealth: { name: 'בריאות השחלות', stages: ['סורקת את השחלות...','בודקת את הבריאות...','מנקה ציסטות...','מאזנת את הזקיקים...','מחזקת את הרקמה...','משפרת זרימת דם...','שחלות בריאות...','תפקוד מושלם...','ביוץ תקין...','שחלות בריאות!'], completion: 'השחלות בריאות, נקיות ומתפקדות היטב.' },
+            ovariesHormones: { name: 'איזון הורמונלי', stages: ['בודקת את ההורמונים...','מאזנת אסטרוגן...','מאזנת פרוגסטרון...','מאזנת FSH ו-LH...','מאזנת אנדרוגנים...','הכל בהרמוניה...','השחלות מאוזנות...','המחזור מאוזן...','מצב רוח יציב...','איזון הורמונלי מושלם!'], completion: 'כל ההורמונים מאוזנים בהרמוניה מושלמת.' },
+            ovariesOvulation: { name: 'ביוץ תקין', stages: ['בודקת את הביוץ...','מאזנת את הזקיקים...','זקיק דומיננטי מתפתח...','גדל בקצב תקין...','מגיע לגודל אופטימלי...','מתפוצץ בזמן...','ביצית משתחררת...','נתפסת בחצוצרה...','ביוץ מושלם...','ביוץ תקין!'], completion: 'הביוץ תקין וסדיר.' },
+            ovariesReserve: { name: 'רזרבה שחלתית', stages: ['בודקת את הרזרבה השחלתית...','מחזקת את הזקיקים...','משפרת את האיכות...','מגנה על הביציות...','מעשירה במזון...','הזקיקים בריאים...','רזרבה טובה...','איכות גבוהה...','פוריות משופרת...','רזרבה שחלתית בריאה!'], completion: 'הרזרבה השחלתית בריאה ואיכותית.' },
+            hormoneBalance: { name: 'איזון הורמונלי מלא', stages: ['סורקת את כל ההורמונים...','מאזנת אסטרוגן...','מאזנת פרוגסטרון...','מאזנת טסטוסטרון...','מאזנת הורמוני בלוטת התריס...','מאזנת קורטיזול...','מאזנת אינסולין...','הכל בהרמוניה...','הגוף מאוזן...','איזון הורמונלי מלא!'], completion: 'כל ההורמונים בגוף מאוזנים בהרמוניה מושלמת.' },
+            estrogenBalance: { name: 'איזון אסטרוגן', stages: ['בודקת רמות אסטרוגן...','מזהה עודף או חסר...','מאזנת את הייצור...','משפרת את הפירוק...','מנקה אסטרוגן עודף...','הכבד מפרק היטב...','רמות אופטימליות...','תסמינים נעלמים...','הגוף מאוזן...','אסטרוגן מאוזן!'], completion: 'רמות האסטרוגן מאוזנות.' },
+            progesteroneBalance: { name: 'איזון פרוגסטרון', stages: ['בודקת רמות פרוגסטרון...','מזהה את המצב...','מחזקת את הגוף הצהוב...','משפרת את הייצור...','רמות עולות...','מחזור מאוזן...','רירית בריאה...','מצב רוח יציב...','שינה טובה...','פרוגסטרון מאוזן!'], completion: 'רמות הפרוגסטרון מאוזנות.' },
+            inflammationReduce: { name: 'הפחתת דלקות', stages: ['מזהה מוקדי דלקת...','שולחת אות הרגעה...','מפחיתה ציטוקינים דלקתיים...','מרגיעה את הרקמות...','הדלקת פוחתת...','הכאב פוחת...','הנפיחות יורדת...','הריפוי מתחיל...','הרקמות מתרפאות...','דלקות הופחתו!'], completion: 'הדלקות הופחתו לחלוטין.' },
+            immuneBalance: { name: 'איזון מערכת החיסון', stages: ['סורקת את מערכת החיסון...','מאזנת תגובות יתר...','מרגיעה תקיפה עצמית...','מחזקת הגנה נכונה...','מאזנת דלקתיות...','המערכת מאוזנת...','הגנה בריאה...','ללא תקיפה עצמית...','איזון מושלם...','מערכת חיסון מאוזנת!'], completion: 'מערכת החיסון מאוזנת.' },
+            detox: { name: 'ניקוי רעלים', stages: ['מפעילה תהליך ניקוי...','מנקה רעלים סביבתיים...','מנקה קסנואסטרוגנים...','מחזקת את הכבד...','משפרת את הפירוק...','הרעלים יוצאים...','הגוף מתנקה...','מערכת הרבייה נקייה...','סביבה בריאה...','ניקוי רעלים הושלם!'], completion: 'הגוף נקי מרעלים.' },
+            cycleRegulate: { name: 'ויסות המחזור', stages: ['בודקת את המחזור...','מאזנת את ההורמונים...','מווסתת את האורך...','מסדירה את הביוץ...','מאזנת את הדימום...','המחזור מתאזן...','סדיר כמו שעון...','ללא הפתעות...','גוף מאוזן...','מחזור מווסת!'], completion: 'המחזור סדיר ומאוזן.' },
+            painRelief: { name: 'הקלה בכאבי מחזור', stages: ['מזהה כאבי מחזור...','מרגיעה את הרחם...','משחררת התכווצויות...','משפרת זרימת דם...','מפחיתה פרוסטגלנדינים...','הכאב פוחת...','הרחם רגוע...','נוחות חוזרת...','מחזור ללא כאב...','כאבי מחזור הוקלו!'], completion: 'כאבי המחזור הוקלו.' },
+            bleedingBalance: { name: 'איזון דימום', stages: ['בודקת את הדימום...','מאזנת את הכמות...','מווסתת את המשך...','מחזקת כלי דם...','מאזנת קרישה...','הדימום מתאזן...','כמות תקינה...','משך תקין...','ללא בעיות...','דימום מאוזן!'], completion: 'הדימום מאוזן.' },
+            fertility: { name: 'פוריות ופריון', stages: ['מחזקת את הפוריות...','משפרת איכות ביציות...','מאזנת הורמונים...','משפרת רירית הרחם...','פותחת את החצוצרות...','יוצרת סביבה מושלמת...','הגוף מוכן...','פוריות משופרת...','מוכנה להריון...','פוריות מלאה!'], completion: 'הפוריות משופרת. הגוף מוכן ומושלם לקליטת הריון.' },
+            totalWomensHealth: { name: 'ריפוי מלא - בריאות האישה', stages: ['מתחילה ריפוי מלא...','מסירה מיומות...','ממיסה ציסטות...','מנקה גושים בשד...','מסירה אנדומטריוזיס...','מאזנת הורמונים...','מחזקת את הרחם...','מרפאה את השחלות...','מווסתת את המחזור...','ריפוי מלא של בריאות האישה!'], completion: 'ריפוי מלא הושלם. כל מערכת הרבייה בריאה, מאוזנת ומתפקדת בצורה מושלמת.' }
+        };
+        
+        function generateOverlays() {
+            let html = '';
+            for (const [key, d] of Object.entries(data)) {
+                html += `<div class="overlay" id="${key}Overlay"><button class="close-overlay" onclick="closeOverlay('${key}')">✕</button><div class="overlay-content"><div class="animation-icon" id="${key}Icon">🌸</div><div class="animation-text" id="${key}Text">מתחילה...</div><div class="progress-bar"><div class="progress-fill" id="${key}Progress"></div></div><button class="install-btn" id="${key}Btn" onclick="runProcess('${key}')">🌸 הפעלה</button><div class="completion-message" id="${key}Complete"><p style="font-size:1.2em;margin-bottom:10px;color:#D4A574;">✅ הושלם!</p><p style="color:#666;">${d.completion}</p></div></div></div>`;
+            }
+            document.body.insertAdjacentHTML('beforeend', html);
+        }
+        generateOverlays();
+        
+        function startProcess(type) {
+            document.getElementById(type+'Overlay').classList.add('active');
+            document.getElementById(type+'Progress').style.width='0%';
+            document.getElementById(type+'Complete').classList.remove('show');
+            document.getElementById(type+'Btn').disabled=false;
+            document.getElementById(type+'Btn').textContent='🌸 הפעלה';
+        }
+        
+        function closeOverlay(type) { document.getElementById(type+'Overlay').classList.remove('active'); }
+        
+        function runProcess(type) {
+            const btn=document.getElementById(type+'Btn'), progress=document.getElementById(type+'Progress'), text=document.getElementById(type+'Text'), icon=document.getElementById(type+'Icon'), stages=data[type].stages, icons=['🔍','🎯','💫','✨','🌟','💜','🌺','🌷','🦋','🌸'];
+            btn.disabled=true; btn.textContent='⏳ פועל...';
+            let stage=0;
+            const interval=setInterval(()=>{
+                if(stage<stages.length){progress.style.width=((stage+1)*10)+'%';text.textContent=stages[stage];icon.textContent=icons[stage];stage++;}
+                else{clearInterval(interval);document.getElementById(type+'Complete').classList.add('show');btn.disabled=false;btn.textContent='🌸 הפעלה שוב';}
+            },4000);
+        }
+    </script>
+</body>
+</html>
